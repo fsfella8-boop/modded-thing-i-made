@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dy7fvuxd1mav4"]
+
+[ext_resource type="Script" uid="uid://cp2p86c2sluqb" path="res://modded obby/timedcourse.gd" id="1_57cmf"]
+
+[node name="timedcourse" type="Node3D" unique_id=1082434237]
+script = ExtResource("1_57cmf")
+metadata/time = 10.0
+metadata/transparency = 0.5
+metadata/signal = NodePath("")

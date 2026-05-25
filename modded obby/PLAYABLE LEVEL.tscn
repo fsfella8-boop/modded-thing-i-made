@@ -1,0 +1,275 @@
+[gd_scene format=3 uid="uid://b0eo8cm8qdmpt"]
+
+[ext_resource type="Script" uid="uid://b07seoxhluvhp" path="res://customlevelload.gd" id="1_lwmky"]
+[ext_resource type="Texture2D" uid="uid://n57bufw4xuqm" path="res://assets/skyboxes/citrus_orchard_road_puresky_4k.exr" id="2_f3ndh"]
+[ext_resource type="PackedScene" uid="uid://b35nds8m0c77l" path="res://assets/prefabs/UI/shiftlockIcon.tscn" id="3_qhpgy"]
+[ext_resource type="PackedScene" uid="uid://21fflrxp85y2" path="res://assets/prefabs/UI/Health.tscn" id="4_1ye11"]
+[ext_resource type="PackedScene" uid="uid://bhgjl8nsom23c" path="res://assets/prefabs/UI/fps.tscn" id="5_wmn5r"]
+[ext_resource type="PackedScene" uid="uid://r7idkhhne3c0" path="res://assets/prefabs/UI/esc_menu.tscn" id="6_2ofsm"]
+[ext_resource type="PackedScene" uid="uid://fuehl670w3lw" path="res://assets/prefabs/UI/Timer.tscn" id="7_r4pxw"]
+[ext_resource type="PackedScene" uid="uid://b8q02e5g57tx4" path="res://assets/character/player.tscn" id="8_gsk6q"]
+[ext_resource type="Script" uid="uid://bw7gsvsiulh78" path="res://modded obby-20260525T072943Z-3-001/modded obby/LEVELCOLORSWITCH.gd" id="9_37hkm"]
+[ext_resource type="PackedScene" uid="uid://dsern6kcs1k5t" path="res://assets/prefabs/building/Old/Part.tscn" id="10_tnt1c"]
+[ext_resource type="PackedScene" uid="uid://dkvfs4gc0rwy6" path="res://modded obby-20260525T072943Z-3-001/modded obby/button.tscn" id="11_tnt1c"]
+[ext_resource type="PackedScene" uid="uid://dy7fvuxd1mav4" path="res://modded obby-20260525T072943Z-3-001/modded obby/timedcourse.tscn" id="12_37hkm"]
+[ext_resource type="Script" uid="uid://jx1i6lhb233i" path="res://modded obby-20260525T072943Z-3-001/modded obby/deathbarrier.gd" id="13_yk144"]
+[ext_resource type="Texture2D" uid="uid://cbncqagqdovv2" path="res://modded obby-20260525T072943Z-3-001/modded obby/goooogggg.jpg" id="14_22r4f"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0b4ue"]
+panorama = ExtResource("2_f3ndh")
+
+[sub_resource type="Sky" id="Sky_f2txt"]
+sky_material = SubResource("PanoramaSkyMaterial_0b4ue")
+
+[sub_resource type="Environment" id="Environment_1ainy"]
+background_mode = 2
+sky = SubResource("Sky_f2txt")
+
+[node name="Node3D" type="Node3D" unique_id=489380727]
+script = ExtResource("1_lwmky")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1117970329]
+environment = SubResource("Environment_1ainy")
+
+[node name="ShiftlockIcon" parent="." unique_id=598571543 instance=ExtResource("3_qhpgy")]
+visible = false
+
+[node name="Health" parent="." unique_id=1544686410 instance=ExtResource("4_1ye11")]
+offset_left = -237.0
+offset_top = 9.0
+offset_right = -12.0
+offset_bottom = 36.0
+
+[node name="Fps" parent="." unique_id=174923971 instance=ExtResource("5_wmn5r")]
+
+[node name="EscMenu" parent="." unique_id=1769971828 instance=ExtResource("6_2ofsm")]
+
+[node name="Timer" parent="." unique_id=1938707771 instance=ExtResource("7_r4pxw")]
+mouse_filter = 2
+
+[node name="Player" parent="." unique_id=1574667455 node_paths=PackedStringArray("shiftlockLogo", "timer", "HealthBar") instance=ExtResource("8_gsk6q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+shiftlockLogo = NodePath("../ShiftlockIcon")
+timer = NodePath("../Timer")
+HealthBar = NodePath("../Health")
+
+[node name="level" type="Node3D" parent="." unique_id=1018553401]
+script = ExtResource("9_37hkm")
+metadata/color = Color(1, 0.84800005, 0.24000001, 1)
+metadata/transparency = 0.0
+
+[node name="Part" parent="level" unique_id=1081425028 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 10, 0, -2.3533072, 0)
+
+[node name="Part2" parent="level" unique_id=2137913614 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1, 0, 0, 0, 15, 0, 0, 0, 1, 4, 5.6466928, -1)
+
+[node name="Part3" parent="level" unique_id=339185027 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1, 0, 0, 0, 9, 0, 0, 0, 1, -7, -1.3533072, -3)
+
+[node name="Part4" parent="level" unique_id=2094124131 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1, 0, 0, 0, 9, 0, 0, 0, 1, -1, 0.64669275, 3)
+
+[node name="Part5" parent="level" unique_id=1702662397 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(3.535534, 0, 0.70710677, 0, 9, 0, -3.535534, 0, 0.70710677, -1.6311922, 9.646692, 0.19038063)
+
+[node name="Part6" parent="level" unique_id=1116560915 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(3.535534, 0, 0.70710677, 0, 9, 0, -3.535534, 0, 0.70710677, -6.368808, 6.6466928, 1.1096194)
+
+[node name="Part7" parent="level" unique_id=1772556031 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(2.9999998, 0, -0.86602545, 0, 15, 0, 5.1961527, 0, 0.49999997, 3.1, 14.646692, -1.5588458)
+
+[node name="Part8" parent="level" unique_id=1934402707 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.99999994, 0, -0.86602545, 0, 15, 0, 1.7320509, 0, 0.49999997, 5.8999996, 14.646692, 3.2908967)
+
+[node name="timedcourse" parent="level" unique_id=1082434237 instance=ExtResource("12_37hkm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
+metadata/time = 7.2
+metadata/signal = NodePath("../button")
+
+[node name="Part" parent="level/timedcourse" unique_id=144527957 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(4.2, 0, 0, 0, 1, 0, 0, 0, 5.1, -4.2, 14, 0)
+
+[node name="Part2" parent="level/timedcourse" unique_id=217432320 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(4.2, 0, 0, 0, 1, 0, 0, 0, 5.1, 4.2, 14, 0)
+
+[node name="Part3" parent="level/timedcourse" unique_id=454938702 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(4.2, 0, 0, 0, 1, 0, 0, 0, 1.0199999, 12.599999, 14, 0)
+
+[node name="Part4" parent="level/timedcourse" unique_id=646610116 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1, 0, 0, 0, 17, 0, 0, 0, 7.5582004, 8.599999, 19.1, -0.41582)
+
+[node name="Part5" parent="level/timedcourse" unique_id=37239354 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1, 0, 0, 0, 17, 0, 0, 0, 1, 8.599999, 19.1, 6)
+
+[node name="Part6" parent="level/timedcourse" unique_id=1129113948 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(4.2, 0, 0, 0, 50, 0, 0, 0, 5.1, 0, 14, 0)
+
+[node name="Part7" parent="level/timedcourse" unique_id=283042636 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1.26, 0, 0, 0, 5.46, 0, 0, 0, 1.0199999, 14.1119995, 17.276001, 0)
+
+[node name="Part8" parent="level/timedcourse" unique_id=1209448816 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.599999, 22.1, -4.5600004)
+
+[node name="Part9" parent="level/timedcourse" unique_id=130778422 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(4.2, 0, 0, 0, 0.9999996, 0, 0, 0, 5.1, 0, 29.999994, -5.1)
+
+[node name="Part10" parent="level/timedcourse" unique_id=1706066598 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 33.999992, 3.1)
+
+[node name="Part11" parent="level/timedcourse" unique_id=1135708188 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.3, -7.3999996, 39, 0)
+
+[node name="Part12" parent="level/timedcourse" unique_id=1221834084 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.8660254, 0, 0.15, 0, 1, 0, -0.5, 0, 0.25980762, -14.667949, 39, 1.1000001)
+
+[node name="button" parent="level" unique_id=1930799180 instance=ExtResource("11_tnt1c")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 3, 14.6, 18, 0)
+metadata/color = Color(0.9019608, 0.5254902, 0, 1)
+
+[node name="Part9" parent="level" unique_id=1838307498 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 9, 0, -0.70710677, 0, 0.70710677, -4.954594, 9.646692, 3.5137825)
+
+[node name="Part10" parent="level" unique_id=1405836667 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.5999999, 0, -4.5033326, 0, 15, 0, 1.0392305, 0, 2.6, 5.3516665, 14.646692, -2.8588457)
+
+[node name="Part11" parent="level" unique_id=1167203868 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(17.320507, 0, -5, 0, 1, 0, 10, 0, 8.660254, -2.5, 40.64669, 14.330127)
+
+[node name="Part12" parent="level" unique_id=1031734431 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(10.530869, 0, -0.6, 0, 20, 0, 6.08, 0, 1.0392305, -8.680836, 48.64669, 17.181751)
+
+[node name="Part13" parent="level" unique_id=645879351 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(10.530869, 0, -0.6, 0, 20, 0, 6.08, 0, 1.0392305, -6.4154015, 48.64669, 25.417904)
+
+[node name="Part14" parent="level" unique_id=1238203241 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(10.530869, 0, -0.6, 0, 20, 0, 6.08, 0, 1.0392305, -15.280836, 48.64669, 28.613287)
+
+[node name="Part15" parent="level" unique_id=1114208616 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1.23843, 0, -9, 0, 20, 0, 0.7150079, 0, 15.588457, -17.58687, 48.64669, 21.739334)
+
+[node name="Part16" parent="level" unique_id=614371086 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(4.212347, 0, -0.6, 0, 20, 0, 2.432, 0, 1.0392305, 1.249864, 48.64669, 23.328472)
+
+[node name="Part17" parent="level" unique_id=467537728 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.84246933, 0, -2.3760002, 0, 20, 0, 0.48639995, 0, 4.1153526, -0.22480294, 48.64669, 25.88267)
+
+[node name="Part18" parent="level" unique_id=1941946938 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.7274612, 0, -4, 0, 1, 0, 0.42, 0, 6.928203, -18.774612, 40.64669, 25.718582)
+
+[node name="Part19" parent="level" unique_id=249568572 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.7274612, 0, -2.8, 0, 1, 0, 0.42, 0, 4.849742, -7.387462, 40.64669, 21.115456)
+
+[node name="Part20" parent="level" unique_id=1748485253 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(10.530869, 0, -0.6, 0, 20, 0, 6.08, 0, 1.0392305, -19.052444, 48.64669, 18.121904)
+
+[node name="Part21" parent="level" unique_id=349385211 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.7274612, 0, -1.2, 0, 1, 0, 0.42, 0, 2.078461, -7.827047, 40.64669, 25.57284)
+
+[node name="Part22" parent="level" unique_id=1328176434 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -12.316734, 39.64669, 31.479313)
+
+[node name="Part23" parent="level" unique_id=1300709789 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.7274612, 0, -2, 0, 1, 0, 0.42, 0, 3.4641016, -20.393267, 40.64669, 24.32217)
+
+[node name="Part24" parent="level" unique_id=1850842980 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(5.1601253, 0, -0.6, 0, 0.79999965, 0, 2.9792, 0, 1.0392305, -22.232508, 45.446693, 17.671535)
+
+[node name="timedcourse2" parent="level" unique_id=123103204 instance=ExtResource("12_37hkm")]
+metadata/time = 25.0
+metadata/transparency = 0.85
+metadata/signal = NodePath("../../button")
+
+[node name="Part24" parent="level/timedcourse2" unique_id=797113946 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1.5480376, 0, -1.5, 0, 18.398008, 0, 0.89376, 0, 2.598076, -22.682508, 54.405895, 18.450958)
+
+[node name="Part25" parent="level/timedcourse2" unique_id=1565190383 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1.5480376, 0, -0.45000002, 0, 18.398008, 0, 0.89376, 0, 0.7794229, -24.58751, 54.405895, 21.750515)
+
+[node name="Part23" parent="level/timedcourse2" unique_id=1286614925 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.7274613, 0, -0.6000001, 0, 20, 0, 0.42000005, 0, 1.0392305, -19.838772, 47.990692, 30.585758)
+
+[node name="Part26" parent="level/timedcourse2" unique_id=30873227 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.8660254, 0, -0.50000006, 0, 10.608, 0, 0.50000006, 0, 0.8660254, -16.39645, 46.358692, 31.479479)
+
+[node name="Part27" parent="level/timedcourse2" unique_id=1498025255 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.8660254, 0, -0.50000006, 0, 10.608, 0, 0.50000006, 0, 0.8660254, -17.1285, 46.358692, 28.747427)
+
+[node name="Part21" parent="level/timedcourse2" unique_id=2059325495 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.7274613, 0, -1.2000002, 0, 15, 0, 0.42000005, 0, 2.078461, -9.027047, 47.64669, 27.6513)
+
+[node name="Part19" parent="level/timedcourse2" unique_id=1544510961 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.7274613, 0, -1.4000001, 0, 20, 0, 0.42000005, 0, 2.424871, -8.227462, 49.64669, 22.57038)
+
+[node name="Part28" parent="level/timedcourse2" unique_id=701159385 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.7274613, 0, -0.6000001, 0, 20, 0, 0.42000005, 0, 1.0392305, -22.393267, 47.990692, 27.786272)
+
+[node name="Part22" parent="level/timedcourse2" unique_id=24898929 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.7274613, 0, -1.2000002, 0, 15, 0, 0.42000005, 0, 2.078461, -11.216893, 47.64669, 24.724224)
+
+[node name="Part13" parent="level/timedcourse2" unique_id=482951347 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(2.8433344, 0, -0.6, 0, 1.1999999, 0, 1.6416, 0, 1.0392305, -7.917879, 45.886692, 16.121134)
+
+[node name="Part14" parent="level/timedcourse2" unique_id=1724734353 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(2.8433344, 0, -0.6, 0, 1.1999999, 0, 1.6416, 0, 1.0392305, -11.614214, 51.04669, 13.987054)
+
+[node name="Part15" parent="level/timedcourse2" unique_id=1092241663 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(2.8433344, 0, -0.6, 0, 1.1999999, 0, 1.6416, 0, 1.0392305, -4.2215447, 53.446693, 18.255213)
+
+[node name="Part16" parent="level/timedcourse2" unique_id=1998819735 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(2.8433344, 0, -0.6, 0, 1.1999999, 0, 1.6416, 0, 1.0392305, -7.917879, 58.246696, 16.121134)
+
+[node name="Part29" parent="level/timedcourse2" unique_id=1253091016 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1.5480376, 0, -0.45000002, 0, 18.398008, 0, 0.89376, 0, 0.7794229, -27.96251, 45.206894, 27.596186)
+
+[node name="Part30" parent="level/timedcourse2" unique_id=20534510 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.8660254, 0, -0.50000006, 0, 18.398, 0, 0.50000006, 0, 0.8660254, -24.621483, 59.925297, 23.80936)
+
+[node name="Part31" parent="level/timedcourse2" unique_id=499544748 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1.299038, 0, -0.50000006, 0, 18.398, 0, 0.7500001, 0, 0.8660254, -27.353533, 59.925297, 24.54141)
+
+[node name="Part32" parent="level/timedcourse2" unique_id=1444825363 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(8.660254, 0, -5.7500005, 0, 5, 0, 5.0000005, 0, 9.959292, -24.621483, 71.02287, 23.80936)
+
+[node name="Part33" parent="level/timedcourse2" unique_id=979338987 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, 0.8660254, -30.137508, 57.4059, 30.899292)
+
+[node name="Part34" parent="level/timedcourse2" unique_id=68893844 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.8660254, 0.25000003, -2.5894165, 0, 0.8660254, 2.9900002, 0.50000006, -0.4330127, 4.485, -34.063007, 62.319878, 37.69846)
+
+[node name="Part35" parent="level/timedcourse2" unique_id=1371754106 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, 0.8660254, -30.137508, 65.4059, 30.899292)
+
+[node name="Part36" parent="level/timedcourse2" unique_id=1905816635 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.8660254, 0, -0.50000006, 0, 18.398, 0, 0.50000006, 0, 0.8660254, -26.621483, 59.925297, 27.273462)
+
+[node name="Part37" parent="level/timedcourse2" unique_id=2115116622 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, 0.8660254, -30.137508, 71.4059, 30.899292)
+
+[node name="Part32" parent="level" unique_id=1299380164 groups=["climbable"] instance=ExtResource("10_tnt1c")]
+transform = Transform3D(4.330127, 0, -2.5000002, 0, 1, 0, 2.5000002, 0, 4.330127, -15.871483, 72.92529, 8.653915)
+
+[node name="Part26" parent="level" unique_id=645306408 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1.23843, 0, -9, 0, 20, 0, 0.7150079, 0, 15.588457, -17.58687, 68.64669, 21.739334)
+
+[node name="Part25" parent="level" unique_id=410256394 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(10.530869, 0, -0.6, 0, 20, 0, 6.08, 0, 1.0392305, -15.280836, 68.64669, 28.613287)
+
+[node name="Part27" parent="level" unique_id=1592006571 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(1.23843, 0, -9, 0, 20, 0, 0.7150079, 0, 15.588457, -17.58687, 88.64669, 21.739334)
+
+[node name="Part28" parent="level" unique_id=2030872884 instance=ExtResource("10_tnt1c")]
+transform = Transform3D(10.530869, 0, -0.6, 0, 20, 0, 6.08, 0, 1.0392305, -15.280836, 88.64669, 28.613287)
+
+[node name="button" parent="." unique_id=1029747312 instance=ExtResource("11_tnt1c")]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -25.6971, 45.447, 15.672001)
+metadata/color = Color(0.9, 0.52500004, 0, 1)
+
+[node name="deathbarrier" type="Node3D" parent="." unique_id=1026668050]
+script = ExtResource("13_yk144")
+metadata/player = NodePath("../Player")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1540239740]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -16, 76, 9)
+billboard = 2
+texture = ExtResource("14_22r4f")
